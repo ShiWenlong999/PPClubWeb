@@ -1,0 +1,13 @@
+{
+	"index.html": {
+		"resources": [
+			"html/home.html"
+		],
+		"refer": [
+			"html/my/my.html",
+			"html/home.html",
+			"html/course/course.html",
+			"html/schedule/schedule.html"
+		]
+	}
+}

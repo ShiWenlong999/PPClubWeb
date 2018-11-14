@@ -125,5 +125,46 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"html/home.html"
+				],
+				"refer": [
+					"html/my/my.html",
+					"html/course/course.html",
+					"html/schedule/schedule.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"html/my/my-schedule.html",
+				"html/schedule/schedule-info.html",
+				"fonts/mui.ttf",
+				"css/mui.css",
+				"html/course/place.html",
+				"html/setting/set-password.html",
+				"html/my/vip/vip.html",
+				"html/my/about/about-we.html",
+				"html/course/share.html",
+				"html/course/course-info.html",
+				"js/mui.min.js",
+				"html/regist.html",
+				"html/my/my-course.html",
+				"css/mui.min.css",
+				"html/setting/setting.html",
+				"html/my/advice.html",
+				"html/login.html",
+				"js/mui.js",
+				"html/my/about/canact.html",
+				"html/my/vip/vip-join.html",
+				"html/my/vip/vip-invite.html",
+				"README.md"
+			]
+		}
 	}
 }
