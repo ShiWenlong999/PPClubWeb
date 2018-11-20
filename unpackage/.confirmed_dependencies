@@ -9,5 +9,10 @@
 			"html/course/course.html",
 			"html/schedule/schedule.html"
 		]
+	},
+	"html/course/course.html": {
+		"refer": [
+			"html/course/course-info.html"
+		]
 	}
 }

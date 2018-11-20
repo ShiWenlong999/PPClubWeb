@@ -1,0 +1,22 @@
+/*描述框*/
+.textp{
+		background: #EEE8D8;
+		border-radius: 5px;
+		margin: 20px 10px 10px 10px;
+		padding: 10px 10px 10px 10px;
+}
+/*价格*/
+.jiage{
+	background: #DDDDDD;
+	height: 50px;
+		border-radius: 5px;
+		margin: 10px 10px 10px 10px;
+		padding: 10px 10px 10px 10px;
+}
+.jiage button{
+	float: right;
+	margin-right: 10px;
+	width: 100px;
+	
+}
+

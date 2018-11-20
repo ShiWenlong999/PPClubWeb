@@ -138,6 +138,13 @@
 					"html/schedule/schedule.html"
 				],
 				"priority": 0
+			},
+			"html/course/course.html": {
+				"resources": [],
+				"refer": [
+					"html/course/course-info.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -151,7 +158,6 @@
 				"html/my/vip/vip.html",
 				"html/my/about/about-we.html",
 				"html/course/share.html",
-				"html/course/course-info.html",
 				"js/mui.min.js",
 				"html/regist.html",
 				"html/my/my-course.html",
