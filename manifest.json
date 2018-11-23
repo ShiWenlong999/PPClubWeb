@@ -145,6 +145,13 @@
 					"html/course/course-info.html"
 				],
 				"priority": 0
+			},
+			"html/course/course-info.html": {
+				"resources": [],
+				"refer": [
+					"html/course/course-enterName.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

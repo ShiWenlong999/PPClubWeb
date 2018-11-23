@@ -62,7 +62,7 @@
 		    <!--价格-->
 		    <div class="jiage" >
 		        <label>价格：<font size="5" color="#FF0000">￥300</font></label>
-		        <button type="button" class="mui-btn mui-btn-blue" >报名</button>
+		        <button type="button" class="mui-btn mui-btn-blue" onclick="toEn()">报名</button>
 		    </div>
 		    
 		    <!--指导教师-->
@@ -76,6 +76,12 @@
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			function toEn(){
+				mui.openWindow({
+					url:"course-enterName.html",
+					id:"course-enterName"
+				})
+			}
 		</script>
 	</body>
 
