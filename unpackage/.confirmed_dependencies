@@ -1,23 +1,33 @@
 {
-	"index.html": {
-		"resources": [
-			"html/home.html"
-		],
-		"refer": [
-			"html/my/my.html",
-			"html/home.html",
-			"html/course/course.html",
-			"html/schedule/schedule.html"
-		]
-	},
-	"html/course/course.html": {
-		"refer": [
-			"html/course/course-info.html"
-		]
-	},
-	"html/course/course-info.html": {
-		"refer": [
-			"html/course/course-enterName.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "html/home.html"
+    ],
+    "refer": [
+      "html/my/my.html",
+      "html/home.html",
+      "html/course/course.html",
+      "html/schedule/schedule.html"
+    ]
+  },
+  "html/course/course.html": {
+    "refer": [
+      "html/course/course-info.html"
+    ]
+  },
+  "html/course/course-info.html": {
+    "refer": [
+      "html/course/course-enterName.html"
+    ]
+  },
+  "html/schedule/schedule-info.html": {
+    "refer": [
+      "html/schedule/schedule-enterName.html"
+    ]
+  },
+  "html/schedule/schedule.html": {
+    "refer": [
+      "html/schedule/schedule-info.html"
+    ]
+  }
 }
