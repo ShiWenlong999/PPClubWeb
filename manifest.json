@@ -37,7 +37,7 @@
         },
         "Speech": {
             "description": "管理语音识别插件"
-        }
+        },"Push":{},"Share":{}
 	},
 	"plus": {
 		"splashscreen": {
