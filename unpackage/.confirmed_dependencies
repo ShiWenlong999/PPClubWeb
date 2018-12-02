@@ -1,23 +1,81 @@
 {
-  "index.html": {
-    "resources": [
-      "html/home.html"
-    ],
-    "refer": [
-      "html/my/my.html",
-      "html/home.html",
-      "html/course/course.html",
-      "html/schedule/schedule.html"
-    ]
-  },
-  "html/course/course.html": {
-    "refer": [
-      "html/course/course-info.html"
-    ]
-  },
-  "html/course/course-info.html": {
-    "refer": [
-      "html/course/course-enterName.html"
-    ]
-  }
+	"index.html": {
+		"resources": [
+			"html/home.html"
+		],
+		"refer": [
+			"html/my/my.html",
+			"html/home.html",
+			"html/course/course.html",
+			"html/schedule/schedule.html"
+		]
+	},
+	"html/course/course.html": {
+		"refer": [
+			"html/course/course-info.html"
+		]
+	},
+	"html/course/course-info.html": {
+		"refer": [
+			"html/course/course-enterName.html"
+		]
+	},
+	"html/my/my.html": {
+		"refer": [
+			"html/my/vip/vip-invite.html",
+			"html/my/advice.html",
+			"html/my/my-course.html",
+			"html/my/about/canact.html",
+			"html/my/about/share.html",
+			"html/my/about/place.html",
+			"html/setting/setting.html"
+		]
+	},
+	"html/my/vip/vip-invite.html": {
+		"refer": [
+			"html/my/vip/vip-join.html"
+		]
+	},
+	"html/schedule/schedule.html": {
+		"refer": [
+			"html/schedule/schedule-info.html"
+		]
+	},
+	"html/schedule/schedule-info.html": {
+		"refer": [
+			"html/schedule/schedule-enterName.html"
+		]
+	},
+	"html/my/advice.html": {
+		"refer": [
+			"html/my/my.html"
+		]
+	},
+	"html/my/my-course.html": {
+		"refer": [
+			"html/my/my.html"
+		]
+	},
+	"html/my/about/canact.html": {
+		"refer": [
+			"html/my/my.html"
+		]
+	},
+	"html/my/about/share.html": {
+		"refer": [
+			"html/my/my.html"
+		]
+	},
+	"html/setting/setting.html": {
+		"refer": [
+			"html/setting/set-password.html",
+			"html/my/my.html",
+			"html/login.html"
+		]
+	},
+	"html/setting/set-password.html": {
+		"refer": [
+			"html/setting/setting.html"
+		]
+	}
 }

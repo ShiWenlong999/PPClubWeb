@@ -198,6 +198,70 @@
 					"html/schedule/schedule-info.html"
 				],
 				"priority": 0
+			},
+			"html/my/my.html": {
+				"resources": [],
+				"refer": [
+					"html/my/vip/vip-invite.html",
+					"html/my/advice.html",
+					"html/my/my-course.html",
+					"html/my/about/canact.html",
+					"html/my/about/share.html",
+					"html/my/about/place.html",
+					"html/setting/setting.html"
+				],
+				"priority": 0
+			},
+			"html/my/vip/vip-invite.html": {
+				"resources": [],
+				"refer": [
+					"html/my/vip/vip-join.html"
+				],
+				"priority": 0
+			},
+			"html/my/advice.html": {
+				"resources": [],
+				"refer": [
+					"html/my/my.html"
+				],
+				"priority": 0
+			},
+			"html/my/my-course.html": {
+				"resources": [],
+				"refer": [
+					"html/my/my.html"
+				],
+				"priority": 0
+			},
+			"html/my/about/canact.html": {
+				"resources": [],
+				"refer": [
+					"html/my/my.html"
+				],
+				"priority": 0
+			},
+			"html/my/about/share.html": {
+				"resources": [],
+				"refer": [
+					"html/my/my.html"
+				],
+				"priority": 0
+			},
+			"html/setting/setting.html": {
+				"resources": [],
+				"refer": [
+					"html/setting/set-password.html",
+					"html/my/my.html",
+					"html/login.html"
+				],
+				"priority": 0
+			},
+			"html/setting/set-password.html": {
+				"resources": [],
+				"refer": [
+					"html/setting/setting.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -206,21 +270,13 @@
 				"fonts/mui.ttf",
 				"css/mui.css",
 				"html/course/place.html",
-				"html/setting/set-password.html",
 				"html/my/vip/vip.html",
 				"html/my/about/about-we.html",
 				"html/course/share.html",
 				"js/mui.min.js",
 				"html/regist.html",
-				"html/my/my-course.html",
 				"css/mui.min.css",
-				"html/setting/setting.html",
-				"html/my/advice.html",
-				"html/login.html",
 				"js/mui.js",
-				"html/my/about/canact.html",
-				"html/my/vip/vip-join.html",
-				"html/my/vip/vip-invite.html",
 				"README.md"
 			]
 		}

@@ -31,31 +31,31 @@
 						</ul>
 						<ul class="mui-table-view" style="margin-top: 15px;"> 
 					        <li class="mui-table-view-cell mui-media">
-					            <a class="mui-navigate-right" href="#">俱乐部会员</a>
+					            <a class="mui-navigate-right" onclick="topage('vip')">俱乐部会员</a>
 					        </li>
 					        <li class="mui-table-view-cell mui-media">
-					            <a class="mui-navigate-right" href="#">我的课程</a>
+					            <a class="mui-navigate-right"  onclick="topage('my-course')">我的课程</a>
 					        </li>
 					        <li class="mui-table-view-cell mui-media">
-					            <a class="mui-navigate-right" href="#">我的比赛</a>
+					            <a class="mui-navigate-right"  onclick="topage('my-schedule')">我的比赛</a>
 					        </li>
 					        <li class="mui-table-view-cell mui-media">
-					            <a class="mui-navigate-right" href="#">意见反馈</a>
+					            <a class="mui-navigate-right"  onclick="topage('advice')">意见反馈</a>
 					        </li>
 					        <li class="mui-table-view-cell mui-collapse">
 					            <a class="mui-navigate-right" href="#">关于我们</a>
 					            <div class="mui-collapse-content" >
-					                <a href="#">联系我们</a>
+					                <a  onclick="topage('about/canact')">联系我们</a>
 					            </div>
 					            <div class="mui-collapse-content">
-					                <a href="#">分享给好友</a>
+					                <a  onclick="topage('about/share')">分享给好友</a>
 					            </div>
 					            <div class="mui-collapse-content">
-					                <a href="#">具体位置</a>
+					                <a  onclick="topage('about/place')">具体位置</a>
 					            </div>
 					        </li>
 					        <li class="mui-table-view-cell mui-media">
-					            <a class="mui-navigate-right" href="#">设置</a>
+					            <a class="mui-navigate-right"  onclick="topage('../setting/setting')">设置</a>
 					        </li>
 					    </ul>   
 				</div>
@@ -63,6 +63,28 @@
     <script src="../../js/mui.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     mui.init()
+	function topage(id){
+		var lg=2;
+		if(id=="vip"){
+			if(lg==1){//会员
+				mui.openWindow({
+					url:'vip/vip.html',
+					id:'vip'
+				})
+			}else{//非会员
+				mui.openWindow({
+					url:'vip/vip-invite.html',
+					id:'vip-invite'
+				})
+			}
+		}else{
+			mui.openWindow({
+				url:id+'.html',
+				id:id
+			})
+		}
+		
+	}
     </script>
 </body>
 </html>

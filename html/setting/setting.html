@@ -1,16 +1,51 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
-</head>
-<body>
-    setting
-    <script src="../../js/mui.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
-    mui.init()
-    </script>
-</body>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-btn{
+				width: 50%;
+				margin-top: 20%;
+				margin-left: 25%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		        <h1 class="mui-title">设置</h1>
+		    </header>
+		<div class="mui-content">
+			<ul class="mui-table-view" style="margin-top: 15px;"> 
+					<li class="mui-table-view-cell mui-media">
+					    <a class="mui-navigate-right" href="set-password.html" onclick="updatePass()">修改密码</a>
+					</li>
+			</ul>			        
+	    	<button type="button" class="mui-btn mui-btn-blue"  onclick="lout();">退出登陆</button>
+	    </div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			function updatePass(){
+		    	mui.openWindow({
+		    		url:'set-password.html',
+		    		id:'set-password'
+		    	})
+		    }
+			function lout(){
+				mui.alert('已退出登陆！', '', function() {
+					mui.openWindow({
+						url:'../login.html',
+						id:'login'
+					})
+				});
+			}
+		</script>
+	</body>
+
 </html>

@@ -9,9 +9,42 @@
 	</head>
 
 	<body>
+		<header class="mui-bar mui-bar-nav">
+		    	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		        <h1 class="mui-title">我的课程</h1>
+		 </header>
+		<div class="mui-content">
+			
+		    <!--课程详情列表-->
+		  <ul class="mui-table-view" >
+		      <li class="mui-table-view-cell mui-media" onclick="toto('1')">
+		          <a href="javascript:;">
+		              <div class="mui-media-body">
+		                 周末班
+		                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+		              </div>
+		          </a>
+		      </li>
+		      <li class="mui-table-view-cell mui-media">
+		          <a href="javascript:;">
+		              <div class="mui-media-body">
+		                  寒暑假班
+		                  <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+		              </div>
+		          </a>
+		      </li>
+		      
+		  </ul>
+		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			function toto(id){
+				mui.openWindow({
+    			url:"../course/course-info.html",
+    			id:"course-info"
+    		})
+			}
 		</script>
 	</body>
 

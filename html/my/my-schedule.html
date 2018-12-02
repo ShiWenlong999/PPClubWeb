@@ -9,9 +9,40 @@
 	</head>
 
 	<body>
+		<header class="mui-bar mui-bar-nav">
+		    	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		        <h1 class="mui-title">我的比赛</h1>
+		    </header>
+		<div class="mui-content">
+		   <!--课程详情列表-->
+		  <ul class="mui-table-view" >
+		      <li class="mui-table-view-cell mui-media" >
+		          <a href="javascript:;">
+		              <div class="mui-media-body">
+		                 大力杯
+		                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+		              </div>
+		          </a>
+		      </li>
+		      <li class="mui-table-view-cell mui-media" onclick="toto('1')">
+		          <a href="javascript:;">
+		              <div class="mui-media-body">
+		             领航杯乒乓球大赛
+		                  <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+		              </div>
+		          </a>
+		      </li>
+		  </ul>
+		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			function toto(id){
+				mui.openWindow({
+    			url:"../schedule/schedule-info.html",
+    			id:"schedule-info"
+    		})
+			}
 		</script>
 	</body>
 

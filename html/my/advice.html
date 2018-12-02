@@ -6,12 +6,46 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/main.css" />
+		<link rel="stylesheet" href="../../css/feedback.css" />
+		<style type="text/css">
+			.question{
+				height: 150px;
+			}
+			.mui-btn{
+				width: 50%;
+				margin-top: 5%;
+				margin-left: 25%;
+			}
+		</style>
 	</head>
 
 	<body>
+		<header class="mui-bar mui-bar-nav">
+		    	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		        <h1 class="mui-title">意见反馈</h1>
+		    </header>
+		<div class="mui-content">
+		    <div class="mui-content-padded">
+				<div class="mui-inline">问题和意见</div>
+			</div>	
+		    <div class="row mui-input-row">
+				<textarea id='question' class="mui-input-clear question" placeholder="请详细描述你的问题和意见..."></textarea>
+			</div>
+			<p>联系方式</p>
+			<div class="mui-input-row">
+				<input id='contact' type="text" class="mui-input-clear contact" placeholder="(选填,方便我们联系你 )" />
+			</div>
+			<button type="button" class="mui-btn mui-btn-blue" onclick="postAdvice()">提交意见</button>
+		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			function postAdvice(){
+				mui.alert('感谢您的宝贵建议！', '', function() {
+					//mui.back()
+				});
+			}
 		</script>
 	</body>
 
