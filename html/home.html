@@ -71,25 +71,25 @@
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" >
-		       <a href="#" onclick="jump(3)">
+		       <a href="#" onclick="jump('3')">
 		           <span class="mui-icon mui-icon-starhalf"></span>
 		           <div class="mui-media-body">尊贵会员</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		       <a href="#" onclick="jump(4)">
+		       <a href="#" onclick="jump('4')">
 		           <span class="mui-icon mui-icon-phone"></span>
 		           <div class="mui-media-body">联系我们</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		       <a href="#" onclick="jump(4)">
+		       <a href="#" onclick="jump('4')">
 		           <span class="mui-icon mui-icon-weixin"></span>
 		           <div class="mui-media-body">我们微信</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		       <a  onclick="jump(6)">
+		       <a  onclick="jump('6')">
 		           <span class="mui-icon mui-icon-location"></span>
 		           <div class="mui-media-body">具体位置</div>
 		       </a>
@@ -107,7 +107,22 @@
 		<script type="text/javascript">
 			mui.init()
 			function jump(id){
-				mui.alert(id)
+				if(id==3){
+					mui.openWindow({
+						url:'my/vip/vip.html',
+						id:'vip'
+					})
+				}else if(id==4){
+					mui.openWindow({
+						url:'my/about/canact.html',
+						id:'canact'
+					})
+				}else if(id==6){
+					mui.openWindow({
+						url:'my/about/place.html',
+						id:'canact'
+					})
+				}
 			}
 		</script>
 	</body>
