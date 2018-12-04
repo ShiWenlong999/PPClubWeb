@@ -59,37 +59,37 @@
 		<!--九宫格-->
 		   <ul class="mui-table-view mui-grid-view mui-grid-9" >
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" >
-		       <a href="#">
+		       <a href="course/course.html">
 		           <span class="mui-icon mui-icon-compose"></span>
 		           <div class="mui-media-body">特色课程</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" >
-		       <a href="#">
+		       <a href="schedule/schedule.html">
 		           <span class="mui-icon mui-icon-flag"></span>
 		           <div class="mui-media-body">近期比赛</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" >
-		       <a href="#">
+		       <a href="#" onclick="jump(3)">
 		           <span class="mui-icon mui-icon-starhalf"></span>
 		           <div class="mui-media-body">尊贵会员</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		       <a href="#">
+		       <a href="#" onclick="jump(4)">
 		           <span class="mui-icon mui-icon-phone"></span>
 		           <div class="mui-media-body">联系我们</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		       <a href="#">
+		       <a href="#" onclick="jump(4)">
 		           <span class="mui-icon mui-icon-weixin"></span>
 		           <div class="mui-media-body">我们微信</div>
 		       </a>
 		   </li>
 		   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		       <a href="#">
+		       <a  onclick="jump(6)">
 		           <span class="mui-icon mui-icon-location"></span>
 		           <div class="mui-media-body">具体位置</div>
 		       </a>
@@ -106,6 +106,9 @@
 		</div>
 		<script type="text/javascript">
 			mui.init()
+			function jump(id){
+				mui.alert(id)
+			}
 		</script>
 	</body>
 
