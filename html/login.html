@@ -31,7 +31,7 @@
 			
 			<div class="mui-content-padded">
 				<button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-				<div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				<div class="link-area"><a id='reg' onclick="toRegist()">注册账号</a> 
 				</div>
 			</div>
 			<div class="mui-content-padded oauth-area">
@@ -41,6 +41,12 @@
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			function toRegist(){
+				mui.openWindow({
+    			url:"regist.html",
+    			id:"regist"
+    		})
+			}
 		</script>
 	</body>
 
