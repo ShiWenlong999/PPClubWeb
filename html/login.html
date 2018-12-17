@@ -30,7 +30,7 @@
 			</form>
 			
 			<div class="mui-content-padded">
-				<button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary" onclick="login()">登录</button>
 				<div class="link-area"><a id='reg' onclick="toRegist()">注册账号</a> 
 				</div>
 			</div>
@@ -41,12 +41,50 @@
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			//跳转注册
 			function toRegist(){
 				mui.openWindow({
     			url:"regist.html",
     			id:"regist"
     		})
 			}
+			
+			//登录
+			function login(){
+				var account=mui("#account")[0].value;//获取账号输入框输入的值
+				var password=mui("#password")[0].value;//获取密码输入框输入的值
+				//判断他们是否为空
+				if(account=="" || password==""){
+					mui.alert("账号密码不能为空！")
+					return;
+				}
+				
+				//AJAX发送账号密码给后台SERVLET
+				mui.ajax({
+					type:'post',
+					url:"http://192.168.199.197:8080/PClub/login",
+					data:{
+						 account:account,
+						 password:password
+					},
+					success:function(data){//请求成功返回调用的方法及返回的参数
+						if(data=='1'){
+							mui.openWindow({
+					    			    url:"../index.html",
+					    			    id:"index"
+				    		})
+						}else{
+							mui.alert("账号或密码错误，请重新输入！")
+						}
+						
+						
+				}
+					
+				})
+				
+			}
+				
+			
 		</script>
 	</body>
 
