@@ -39,6 +39,7 @@
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/main.js" ></script>
 		<script type="text/javascript">
 			mui.init()
 			//跳转注册
@@ -62,13 +63,15 @@
 				//AJAX发送账号密码给后台SERVLET
 				mui.ajax({
 					type:'post',
-					url:"http://192.168.199.197:8080/PClub/login",
+					url:BaseUrl+"/PClub/login",
 					data:{
 						 account:account,
 						 password:password
 					},
 					success:function(data){//请求成功返回调用的方法及返回的参数
 						if(data=='1'){
+							localStorage.setItem("pun", account);
+							localStorage.setItem("pps", password);
 							mui.openWindow({
 					    			    url:"../index.html",
 					    			    id:"index"
@@ -76,7 +79,7 @@
 						}else{
 							mui.alert("账号或密码错误，请重新输入！")
 						}
-						
+						 
 						
 				}
 					

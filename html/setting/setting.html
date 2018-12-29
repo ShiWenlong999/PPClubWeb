@@ -38,6 +38,8 @@
 		    	})
 		    }
 			function lout(){
+				localStorage.removeItem("pun");
+                localStorage.removeItem("pps");
 				mui.alert('已退出登陆！', '', function() {
 					mui.openWindow({
 						url:'../login.html',

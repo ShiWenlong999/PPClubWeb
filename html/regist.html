@@ -7,6 +7,7 @@
 		<meta name="viewport"  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/main.js" ></script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
@@ -50,12 +51,9 @@
 				  	return;
 				  }
 				
-				
-			
-				
 				mui.ajax({
 						type:'post',//HTTP请求类型
-						url:"http://192.168.199.197:8080/PClub/regist",
+						url:BaseUrl+"/PClub/regist",
 						data:{
 							username:phone,
 							password:password1
@@ -70,8 +68,11 @@
 					    			    id:"login"
 				    				})
 								});
-							}else{
-								mui.alert('注册失败!');
+							}else if("0"){
+								mui.alert('手机号已存在，注册失败!请重试');
+								mui("#phone")[0].value="";
+								mui("#password1")[0].value="";
+								mui("#password2")[0].value="";
 							}
 						}
 					});
@@ -83,20 +84,6 @@
 				});*/
 			}
 	</script>
-			
-			
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	</body>
 
 </html>
