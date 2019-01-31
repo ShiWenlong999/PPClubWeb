@@ -33,10 +33,10 @@
 	</div>
 <script type="text/javascript">
 			mui.init({
-      		subpages:[//首先加载首页  
+      		subpages:[//首先加载首页  子页面
                         {  
                             url:'html/home.html',  
-                            id:'tab_home',  
+                            id:'tab_home1',  
                             styles:{  
                                 top:'40px',  
                                 bottom:'50px'  
@@ -67,34 +67,55 @@
 	                    top:'40px',  
 	                    bottom:'50px'  
 	                }  
-                }
+                },{  
+                        url:'html/home.html',  
+                        id:'tab_home',  
+                            styles:{  
+                                top:'40px',  
+                                bottom:'50px'  
+                            }  
+                        } 
             ], 
       	})
 			mui.plusReady(function(){
       		var tab_home,tab_course,tab_schedule,tab_my;  
                 mui("#nav").on("tap","#tab_home",function(){//点击触发   
-                    tab_home=plus.webview.getWebviewById("tab_home");  
+                    tab_home=plus.webview.getWebviewById("tab_home"); 
+		      		tab_course=plus.webview.getWebviewById("tab_course"); 
+		      		tab_schedule=plus.webview.getWebviewById("tab_schedule");  
+		      		tab_my=plus.webview.getWebviewById("tab_my");
                     tab_home.show()  
                     tab_course.hide()
                     tab_schedule.hide()
                     tab_my.hide()
                 })  
                 mui("#nav").on("tap","#tab_course",function(){//点击触发  
-                    tab_course=plus.webview.getWebviewById("tab_course");  
+                    tab_course=plus.webview.getWebviewById("tab_course");
                     tab_course.show()
-                    
-                      
                 })  
                 mui("#nav").on("tap","#tab_schedule",function(){//点击触发  
                     tab_schedule=plus.webview.getWebviewById("tab_schedule");  
                     tab_schedule.show()  
-                      
                 })  
                 mui("#nav").on("tap","#tab_my",function(){//点击触发  
                 	tab_my=plus.webview.getWebviewById("tab_my");
                 	tab_my.show()
                 })
+                var self = plus.webview.currentWebview();
+            	self.addEventListener('show',function(){
+		               plus.webview.getWebviewById("tab_home").show()
+		         });
+		         var pun = localStorage.getItem("pun");
+		      	var pps = localStorage.getItem("pps");
+		      	if(pun==null || pps==null){
+		      		mui.openWindow({
+					    			    url:"html/login.html",
+					    			    id:"login"
+				    			})
+		      	}
+		      				
       	});
+      	
 </script>	
 </body>
 </html>
