@@ -38,10 +38,10 @@
 		<script type="text/javascript">
 			mui.init()
 			function res(){
-				var phone = mui("#phone")[0].value;
-				var password1 = mui("#password1")[0].value;
-				var password2 = mui("#password2")[0].value;
-
+				var phone = mui("#phone")[0].value; ////获取账号输入框输入的值,把账号输入的值赋值给了phone变量
+				var password1 = mui("#password1")[0].value; //将password1密码输入的值赋给password1
+				var password2 = mui("#password2")[0].value;  //将密码2的值赋给password2
+             //判断
 				if(phone=="" || password1 =="" || password2 ==""){
 					mui.alert("账号密码不能为空！")
 					return;
