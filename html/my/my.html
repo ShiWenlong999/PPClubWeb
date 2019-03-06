@@ -22,9 +22,9 @@
 							<li class="mui-table-view-cell mui-media">
 								<a class="mui-navigate" href="#">
 									<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../../image/sy-1.jpg">
-									<div class="mui-media-body">
-										用户名
-										<p class='mui-ellipsis'>账号:123456</p>
+									<div id="aname" class="mui-media-body">
+										    
+										
 									</div>
 								</a>
 							</li>
@@ -33,12 +33,12 @@
 					        <li class="mui-table-view-cell mui-media">
 					            <a class="mui-navigate-right" onclick="topage('vip')">俱乐部会员</a>
 					        </li>
-					        <li class="mui-table-view-cell mui-media">
+					        <!--<li class="mui-table-view-cell mui-media">
 					            <a class="mui-navigate-right"  onclick="topage('my-course')">我的课程</a>
 					        </li>
 					        <li class="mui-table-view-cell mui-media">
 					            <a class="mui-navigate-right"  onclick="topage('my-schedule')">我的比赛</a>
-					        </li>
+					        </li>-->
 					        <li class="mui-table-view-cell mui-media">
 					            <a class="mui-navigate-right"  onclick="topage('advice')">意见反馈</a>
 					        </li>
@@ -84,6 +84,16 @@
 			})
 		}
 		
+	}
+	getName();//调用下面的方法
+	//把保存在手机里的账号和用户名动态显示在页面中
+	function getName(){
+		var pun = localStorage.getItem("pun");
+		var pna = localStorage.getItem("pna");
+		if(pun!=null && pna!=null){
+		      	mui("#aname")[0].innerHTML=pna+"<p class='mui-ellipsis'>账号:"+pun+"</p>";
+		       
+		}
 	}
     </script>
 </body>

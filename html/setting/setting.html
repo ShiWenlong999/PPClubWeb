@@ -38,8 +38,13 @@
 		    	})
 		    }
 			function lout(){
+				
+				//删除手机中保存的用户信息
 				localStorage.removeItem("pun");
                 localStorage.removeItem("pps");
+                localStorage.removeItem("pna");
+                localStorage.removeItem("pid");
+                //提示，并返回登陆页面
 				mui.alert('已退出登陆！', '', function() {
 					mui.openWindow({
 						url:'../login.html',

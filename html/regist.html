@@ -18,7 +18,11 @@
 		   <form class="mui-input-group">
 			    <div class="mui-input-row">
 			       <label>手机号：</label>
-			    <input id='phone' type="text" class="mui-input-clear" placeholder="请输入用户名">
+			    <input id='phone' type="text" class="mui-input-clear" placeholder="请输入账号">
+			    </div>
+			    div class="mui-input-row">
+			       <label>用户名：</label>
+			    <input id='aname' type="text" class="mui-input-clear" placeholder="请输入用户名">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>密   码：</label>
@@ -39,6 +43,7 @@
 			mui.init()
 			function res(){
 				var phone = mui("#phone")[0].value;
+				var aname = mui("#aname")[0].value;
 				var password1 = mui("#password1")[0].value;
 				var password2 = mui("#password2")[0].value;
 
@@ -56,7 +61,8 @@
 						url:BaseUrl+"/PClub/regist",
 						data:{
 							username:phone,
-							password:password1
+							password:password1,
+							name:amame
 						},
 						//dataType:'jsonp',//服务器返回json格式数据
 						//jsonp: "jsoncallback",
