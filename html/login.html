@@ -70,8 +70,7 @@
 					},
 					success:function(data){//请求成功返回调用的方法及返回的参数
 						if(data=='1'){
-							localStorage.setItem("pun", account);//将account存储到pun.localStorage主要作用是将数据保存在客户端中.
-							localStorage.setItem("pps", password);
+							setAP(account,password);//调用下面的方法，保存用户信息
 							mui.openWindow({
 					    			    url:"../index.html", //页面到首页，登录成功
 					    			    id:"index"
@@ -86,8 +85,25 @@
 				})
 				
 			}
-				
-			
+			//用来查询出用户id，保存到手机中	
+			function setAP(account,pass){
+				//AJAX发送账号给后台SERVLET
+				mui.ajax({
+					type:'post',
+					url:BaseUrl+"/PClub/userServlet",
+					data:{
+						 account:account
+					},
+					dataType:"json",
+					success:function(data){//请求成功返回调用的方法及返回的参数
+						//将account存储到pun.localStorage主要作用是将数据保存在客户端中.
+						localStorage.setItem("pun", account);//保存账号
+						localStorage.setItem("pps", password);//密码
+						localStorage.setItem("pna", data.name);//用户名
+						localStorage.setItem("pid", data.id);//id
+					}
+				});
+			}
 		</script>
 	</body>
 

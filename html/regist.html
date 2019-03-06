@@ -18,7 +18,11 @@
 		   <form class="mui-input-group">
 			    <div class="mui-input-row">
 			       <label>手机号：</label>
-			    <input id='phone' type="text" class="mui-input-clear" placeholder="请输入用户名">
+			    <input id='phone' type="text" class="mui-input-clear" placeholder="请输入账号">
+			    </div>
+			    div class="mui-input-row">
+			       <label>用户名：</label>
+			    <input id='aname' type="text" class="mui-input-clear" placeholder="请输入用户名">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>密   码：</label>
@@ -39,9 +43,10 @@
 			mui.init()
 			function res(){
 				var phone = mui("#phone")[0].value; ////获取账号输入框输入的值,把账号输入的值赋值给了phone变量
+				var aname = mui("#aname")[0].value;
 				var password1 = mui("#password1")[0].value; //将password1密码输入的值赋给password1
 				var password2 = mui("#password2")[0].value;  //将密码2的值赋给password2
-             //判断
+
 				if(phone=="" || password1 =="" || password2 ==""){
 					mui.alert("账号密码不能为空！")
 					return;
@@ -56,7 +61,8 @@
 						url:BaseUrl+"/PClub/regist",
 						data:{
 							username:phone,
-							password:password1
+							password:password1,
+							name:amame
 						},
 						//dataType:'jsonp',//服务器返回json格式数据
 						//jsonp: "jsoncallback",
