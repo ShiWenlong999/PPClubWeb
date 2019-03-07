@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -62,24 +61,54 @@
 		    </div>
 		    <!--价格-->
 		    <div class="jiage" >
-		        <label>价格：<font size="5" color="#FF0000">￥300</font></label>
+		        <label>价格：<font size="5" color="#FF0000" id="price"></font></label>
 		        <button type="button" class="mui-btn mui-btn-blue" onclick="toEn()">报名</button>
 		    </div>
 		    
 		    <!--指导教师-->
 		    <!--详情简介-->
 		    <div class="textp">
-		    	<span>指导教师：</span><span>吴老师</span><br /><br />
+		    	<span>指导教师：</span><span id="ssp">吴老师</span><br /><br />
 		    	<h4>课程简介：</h4>
-		    	<span>训练半年，了解乒乓球的基本常识。掌握正确握、站位，正确反手推挡、正手攻球动作，正反手上旋发球，能够上台对练数十个。视疲劳，颈椎疲劳极大缓解，吃饭好，睡觉香，身体素质提高。</span>
+		    	<span id="desc">训练半年，了解乒乓球的基本常识。掌握正确握、站位，正确反手推挡、正手攻球动作，正反手上旋发球，能够上台对练数十个。视疲劳，颈椎疲劳极大缓解，吃饭好，睡觉香，身体素质提高。</span>
 		    </div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/main.js" ></script>
 		<script type="text/javascript">
 			mui.init()
+			
+			var cid ="";
+			//页面加载时获取到课程列表页面传来的课程id,赋给cid
+			mui.plusReady(function(){
+			    var self = plus.webview.currentWebview();
+			    cid = self.courseid;//获得参数
+			    getCourse();
+			});
+			//根据id查询课程详情
+			function getCourse(){
+				mui.ajax({
+					type:'post',
+					url:BaseUrl+"/PClub/selCourse",
+					data:{id:cid},
+					dataType:"json", 
+					success:function(res){
+						//后台返回的结果res就是一个课程对象，将其属性分别放在页面中
+						mui("#courseName")[0].innerHTML=res.course_name;
+						mui("#price")[0].innerHTML=res.price;
+						mui("#ssp")[0].innerHTML=res.teacher;
+						mui("#desc")[0].innerHTML=res.desc2;
+						cname=res.course_name;//课程名字赋给cname以便报名页面使用
+					}
+				});
+				
+			}
+			var cname ="";
+			//跳转到报名页面
 			function toEn(){
 				mui.openWindow({
 					url:"course-enterName.html",
+					extras:{cname:cname},
 					id:"course-enterName"
 				})
 			}

@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -13,8 +12,9 @@
 	<body>
 		<div class="mui-content">
 		  <!--课程详情列表-->
-		  <ul class="mui-table-view" >
-		      <li class="mui-table-view-cell mui-media" onclick="toto('1')">
+		  <ul id="clist" class="mui-table-view" >
+		      <!--
+		      	<li class="mui-table-view-cell mui-media" onclick="toto('1')">
 		          <a href="javascript:;">
 		              <img class="mui-media-object mui-pull-left" src="../../image/sy-1.jpg">
 		              <div class="mui-media-body">
@@ -22,40 +22,47 @@
 		                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
 		              </div>
 		          </a>
-		      </li>
-		      <li class="mui-table-view-cell mui-media">
-		          <a href="javascript:;">
-		              <img class="mui-media-object mui-pull-left" src="../../image/sy-2.jpg">
-		              <div class="mui-media-body">
-		                  寒暑假班
-		                  <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-		              </div>
-		          </a>
-		      </li>
-		      <li class="mui-table-view-cell mui-media">
-		          <a href="javascript:;">
-		              <img class="mui-media-object mui-pull-left" src="../../image/sy-3.jpg">
-		              <div class="mui-media-body">
-		                  提高训练班
-		                  <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-		              </div> 
-		          </a>
-		      </li>
+		      </li>-->
+		      
 		  </ul>
 		</div>
+		<!--将main.js引入本页面-->
+		<script type="text/javascript" src="../../js/main.js" ></script>
 		<script type="text/javascript">
+			
 			mui.init()
-			function toto(id){
-				mui.openWindow({
-    			url:"course-info.html",
-    			id:"course-info"
-    		})
-			}
 			
 			//动态加载所有课程列表
 			getCourses();
 			function getCourses(){
-				
+				mui.ajax({
+					type:'post',
+					url:BaseUrl+"/PClub/selAllCourse",
+					data:{state:"1"},
+					dataType:"json",
+					success:function(res){
+						var context = "";
+						for(var i=0;i<res.length;i++){
+							var ke = res[i];
+									context+="<li class='mui-table-view-cell mui-media' onclick='toto("+ke.id+")'>";
+		          					context+="<a href='javascript:;'>";
+		              				context+="<img class='mui-media-object mui-pull-left' src='../../image/sy-2.jpg'>";
+		                            context+="<div class='mui-media-body'>"+ke.course_name;
+		                  			context+="<p class='mui-ellipsis'>"+ke.desc1+"</p></div></a></li>";
+						}
+						mui("#clist")[0].innerHTML=context;
+					}
+				});
+			}
+			
+			//进入课程详情页面
+			function toto(id){
+					mui.openWindow({
+		    			url:"course-info.html",
+		    			extras:{courseid:id},
+		    			id:"course-info"
+	    			
+	    		});
 			}
 		</script>
 	</body>

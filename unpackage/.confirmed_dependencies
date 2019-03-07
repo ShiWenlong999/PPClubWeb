@@ -7,7 +7,8 @@
 			"html/my/my.html",
 			"html/home.html",
 			"html/course/course.html",
-			"html/schedule/schedule.html"
+			"html/schedule/schedule.html",
+			"html/login.html"
 		]
 	},
 	"html/course/course.html": {
@@ -76,6 +77,11 @@
 	"html/setting/set-password.html": {
 		"refer": [
 			"html/setting/setting.html"
+		]
+	},
+	"html/login.html": {
+		"refer": [
+			"index.html"
 		]
 	}
 }

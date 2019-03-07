@@ -20,21 +20,25 @@
 		    </header>
 		    <!--报名信息表单-->
 		    <form class="mui-input-group">
+		    	<div class="mui-input-row">
+		        	<label>课程</label>
+		            <input type="text" id="cname" class="mui-input-clear" disabled="disabled">
+		        </div>
 		        <div class="mui-input-row">
 		        	<label>姓名</label>
-		            <input type="text" class="mui-input-clear" placeholder="请输入姓名">
+		            <input type="text" id="uname" class="mui-input-clear" placeholder="请输入姓名">
 		        </div>
 		        <div class="mui-input-row">
 		        	<label>性别</label>
-		             <input type="text" class="mui-input-clear" placeholder="请输入性别">
+		             <input type="text" id="sex" class="mui-input-clear" placeholder="请输入性别">
 		        </div>
 		        <div class="mui-input-row">
 		        	<label>年龄</label>
-		             <input type="text" class="mui-input-clear" placeholder="请输入年龄">
+		             <input type="text" id="age" class="mui-input-clear" placeholder="请输入年龄">
 		        </div>
 		        <div class="mui-input-row">
 		        	<label>联系方式</label>
-		             <input type="text" class="mui-input-clear" placeholder="请输入手机号码">
+		             <input type="text" id="phone" class="mui-input-clear" placeholder="请输入手机号码">
 		        </div>
 		    </form>
 		    <div style="text-align: center;margin-top: 30px;">
@@ -44,12 +48,42 @@
 		</div>
 	<body>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/main.js" ></script>
 		<script type="text/javascript">
 			mui.init()
+			//页面加载时获取到课程详情页面传来的课程名字,显示在页面中
+			mui.plusReady(function(){
+			    var self = plus.webview.currentWebview();
+			    mui("#cname")[0].value= self.cname;
+			});
+			
+			//报名方法
 			function enterName(){
-				mui.alert('报名成功！', '', function() {
-					mui.back()
+				//获取到页面中用户输入的值，然通过ajax发送到后台
+				var cname = mui("#cname")[0].value;
+				var uname = mui("#uname")[0].value;
+				var sex = mui("#sex")[0].value;
+				var age = mui("#age")[0].value;
+				var phone = mui("#phone")[0].value;
+				
+				mui.ajax({
+					type:'post',
+					url:BaseUrl+"/PClub/addCname",
+					data:{cname:cname,uname:uname,sex:sex,age:age,phone:phone},
+					success:function(res){
+						if(res=="1"){
+							mui.alert('报名成功！', '', function() {
+								mui.back()
+							});
+						}else{
+							mui.alert("报名失败，请重试！")
+						}
+						
+					}
 				});
+				
+				
+				
 			}
 		</script>
 	</body>

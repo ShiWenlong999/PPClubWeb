@@ -167,7 +167,8 @@
 				"refer": [
 					"html/my/my.html",
 					"html/course/course.html",
-					"html/schedule/schedule.html"
+					"html/schedule/schedule.html",
+					"html/login.html"
 				],
 				"priority": 0
 			},
@@ -260,6 +261,13 @@
 				"resources": [],
 				"refer": [
 					"html/setting/setting.html"
+				],
+				"priority": 0
+			},
+			"html/login.html": {
+				"resources": [],
+				"refer": [
+					"index.html"
 				],
 				"priority": 0
 			}
