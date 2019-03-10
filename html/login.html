@@ -70,7 +70,12 @@
 					},
 					success:function(data){//请求成功返回调用的方法及返回的参数
 						if(data=='1'){
+								//清空页面登陆信息
+								mui("#account")[0].value=""
+								mui("#password")[0].value=""
+								
 							setAP(account,password);//调用下面的方法，保存用户信息
+								
 							mui.openWindow({
 					    			    url:"../index.html", //页面到首页，登录成功
 					    			    id:"index"
@@ -101,6 +106,8 @@
 						localStorage.setItem("pps", password);//密码
 						localStorage.setItem("pna", data.name);//用户名
 						localStorage.setItem("pid", data.id);//id
+						
+						
 					}
 				});
 			}
