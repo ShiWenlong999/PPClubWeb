@@ -39,11 +39,27 @@
 			<button type="button" class="mui-btn mui-btn-blue" onclick="postAdvice()">提交意见</button>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/main.js" ></script>
 		<script type="text/javascript">
 			mui.init()
 			function postAdvice(){
 				mui.alert('感谢您的宝贵建议！', '', function() {
-					//mui.back()
+					var pun = localStorage.getItem("pna");//获取到手机中保存的用户名，存入数据库
+					var adv = mui("#question")[0].value;
+					var contact = mui("#contact")[0].value;
+					
+					//通过ajax将上面参数发送到后台，添加到数据库
+					mui.ajax({
+							type:'post',
+							url:BaseUrl+"/PClub/addAdvice",
+							data:{
+								 username:pun,
+								 adv:adv,
+								 contact:contact
+							}
+						});
+					
+					
 				});
 			}
 		</script>

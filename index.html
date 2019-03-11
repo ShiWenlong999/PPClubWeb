@@ -99,6 +99,7 @@
                 })  
                 mui("#nav").on("tap","#tab_my",function(){//点击触发  
                 	tab_my=plus.webview.getWebviewById("tab_my");
+                	tab_my.reload(true);
                 	tab_my.show()
                 })
                 var self = plus.webview.currentWebview();
@@ -112,9 +113,6 @@
 					    			    url:"html/login.html",
 					    			    id:"login"
 				    			})
-		      	}else{
-		      		tab_my=plus.webview.getWebviewById("tab_my");
-                	tab_my.reload(true);
 		      	}
 		      				
       	});
