@@ -19,7 +19,7 @@
 		              <img class="mui-media-object mui-pull-left" src="../../image/sy-1.jpg">
 		              <div class="mui-media-body">
 		                 周末班
-		                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+		                  <p class="mui-ellipsis">锻炼眼睛</p>
 		              </div>
 		          </a>
 		      </li>-->
@@ -34,12 +34,13 @@
 			
 			//动态加载所有课程列表
 			getCourses();
-			function getCourses(){
+			function getCourses(){     //通过AJAX，将请求发送给后台servlet
 				mui.ajax({
 					type:'post',
-					url:BaseUrl+"/PClub/selAllCourse",
+					url:BaseUrl+"/PClub/selAllCourse", 
 					data:{state:"1"},
 					dataType:"json",
+					//请求成功返回调用的方法及返回的参数
 					success:function(res){
 						var context = "";
 						for(var i=0;i<res.length;i++){
@@ -50,8 +51,8 @@
 		                            context+="<div class='mui-media-body'>"+ke.course_name;
 		                  			context+="<p class='mui-ellipsis'>"+ke.desc1+"</p></div></a></li>";
 						}
-						mui("#clist")[0].innerHTML=context;
-					}
+						mui("#clist")[0].innerHTML=context;  //把context值放进id为clist里面
+				}
 				});
 			}
 			

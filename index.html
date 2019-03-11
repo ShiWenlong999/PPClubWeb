@@ -105,7 +105,7 @@
             	self.addEventListener('show',function(){
 		               plus.webview.getWebviewById("tab_home").show()
 		         });
-		         var pun = localStorage.getItem("pun");
+		         var pun = localStorage.getItem("pun"); //取出存在手机里的pun账号
 		      	var pps = localStorage.getItem("pps");
 		      	if(pun==null || pps==null){
 		      		mui.openWindow({
