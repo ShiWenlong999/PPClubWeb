@@ -33,7 +33,7 @@
 			mui.init()
 			
 			//动态加载所有课程列表
-			getCourses();
+			getCourses();//调用getCourses方法
 			function getCourses(){     //通过AJAX，将请求发送给后台servlet
 				mui.ajax({
 					type:'post',
@@ -60,7 +60,7 @@
 			function toto(id){
 					mui.openWindow({
 		    			url:"course-info.html",
-		    			extras:{courseid:id},
+		    			extras:{courseid:id},//把课程id传到课程详情页面
 		    			id:"course-info"
 	    			
 	    		});

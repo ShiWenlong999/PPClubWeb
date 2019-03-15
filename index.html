@@ -80,7 +80,8 @@
 			mui.plusReady(function(){
       		var tab_home,tab_course,tab_schedule,tab_my;  
                 mui("#nav").on("tap","#tab_home",function(){//点击触发   
-                    tab_home=plus.webview.getWebviewById("tab_home"); 
+                   //根据id获取页面对象，点击的显示，其他隐藏。
+                   tab_home=plus.webview.getWebviewById("tab_home");
 		      		tab_course=plus.webview.getWebviewById("tab_course"); 
 		      		tab_schedule=plus.webview.getWebviewById("tab_schedule");  
 		      		tab_my=plus.webview.getWebviewById("tab_my");
@@ -107,7 +108,7 @@
 		               plus.webview.getWebviewById("tab_home").show()
 		         });
 		         var pun = localStorage.getItem("pun"); //取出存在手机里的pun账号
-		      	var pps = localStorage.getItem("pps");
+		      	var pps = localStorage.getItem("pps"); //取出存在手机里的PPS密码
 		      	if(pun==null || pps==null){
 		      		mui.openWindow({
 					    			    url:"html/login.html",

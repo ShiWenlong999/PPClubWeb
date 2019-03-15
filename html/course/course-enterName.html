@@ -53,8 +53,8 @@
 			mui.init()
 			//页面加载时获取到课程详情页面传来的课程名字,显示在页面中
 			mui.plusReady(function(){
-			    var self = plus.webview.currentWebview();
-			    mui("#cname")[0].value= self.cname;
+			    var self = plus.webview.currentWebview();//获取页面对象
+			    mui("#cname")[0].value= self.cname;//通过页面对象获取到上一个页面传过来的cname变量，并赋给id为cname的元素
 			});
 			
 			//报名方法
@@ -68,8 +68,9 @@
 				
 				mui.ajax({
 					type:'post',
-					url:BaseUrl+"/PClub/addCname",
+					url:BaseUrl+"/PClub/addCname", //到servlet的Cnameservlet.（web.xml映射名字33行）
 					data:{cname:cname,uname:uname,sex:sex,age:age,phone:phone},
+					//前端得到回应参数
 					success:function(res){
 						if(res=="1"){
 							mui.alert('报名成功！', '', function() {
