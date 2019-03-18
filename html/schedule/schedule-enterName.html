@@ -20,21 +20,25 @@
 		    </header>
 		    <!--报名信息表单-->
 		    <form class="mui-input-group">
+		    	<div class="mui-input-row">
+		        	<label>赛程名称</label>
+		            <input type="text" id="sname" class="mui-input-clear" disabled="disabled">
+		        </div>
 		        <div class="mui-input-row">
 		        	<label>姓名</label>
-		            <input type="text" class="mui-input-clear" placeholder="请输入姓名">
+		            <input type="text" id="uname" class="mui-input-clear" placeholder="请输入姓名">
 		        </div>
 		        <div class="mui-input-row">
 		        	<label>性别</label>
-		             <input type="text" class="mui-input-clear" placeholder="请输入性别">
+		             <input type="text" id="sex" class="mui-input-clear" placeholder="请输入性别">
 		        </div>
 		        <div class="mui-input-row">
 		        	<label>年龄</label>
-		             <input type="text" class="mui-input-clear" placeholder="请输入年龄">
+		             <input type="text" id="age" class="mui-input-clear" placeholder="请输入年龄">
 		        </div>
 		        <div class="mui-input-row">
 		        	<label>联系方式</label>
-		             <input type="text" class="mui-input-clear" placeholder="请输入手机号码">
+		             <input type="text" id="phone" class="mui-input-clear" placeholder="请输入手机号码">
 		        </div>
 		    </form>
 		    <div style="text-align: center;margin-top: 30px;">
@@ -44,12 +48,49 @@
 		</div>
 	<body>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/main.js" ></script>
+		<script type="text/javascript" src="../../js/mui.js" ></script>
 		<script type="text/javascript">
 			mui.init()
+			mui.plusReady(function(){
+			    var self = plus.webview.currentWebview();
+			   mui("#sname")[0].value = self.sname;//获得参数
+			   
+			    
+			});
+			
+			//报名的方法
 			function enterName(){
-				mui.alert('报名成功！', '', function() {
-					mui.back()
+				var sname = mui("#sname")[0].value;
+				var uname = mui("#uname")[0].value;
+				var sex = mui("#sex")[0].value;
+				var age = mui("#age")[0].value;
+				var phone = mui("#phone")[0].value;
+				
+				if(sname==""||uname==""||sex==""||age==""||phone==""){
+					mui.alert("有未填写内容！")
+					return;
+				}
+				
+				//通过AJAX将数据传入后台servlet
+				mui.ajax({
+					type:'post',
+					url:BaseUrl+"/PClub/addSname", 
+					data:{sname:sname,uname:uname,sex:sex,age:age,phone:phone},
+					//前端得到回应参数
+					success:function(res){
+						if(res=="1"){
+							mui.alert('报名成功！', '', function() {
+								mui.back()
+							});
+						}else{
+							mui.alert("报名失败，请重试！")
+						}
+						
+					}
 				});
+				
+				
 			}
 			
 		</script>

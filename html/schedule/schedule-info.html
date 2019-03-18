@@ -18,7 +18,7 @@
 		<div class="mui-content">
 		    <header class="mui-bar mui-bar-nav">
 		    	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		        <h1 class="mui-title" id='courseName'>比赛详情</h1>
+		        <h1 class="mui-title" id='sname'></h1>
 		    </header>
 		    <!--轮播图-->
 		    <div id="slider" class="mui-slider" >
@@ -62,34 +62,65 @@
 		    </div>
 		    <!--价格-->
 		    <div class="jiage" >
-		        <label>报名费：<font size="5" color="#FF0000">￥30</font></label>
+		        <label>报名费：<font id="price" size="5" color="#FF0000"></font></label>
 		        <button type="button" class="mui-btn mui-btn-blue" onclick="toEn()">报名</button>
 		    </div>
 		    
 		    <!--比赛日期-->
 		    <div class="jiage" style="background: darkorange;">
-		    	<label>比赛日期：<span>2018-10-10</span>至<span>2018-11-11</span> </label><br />
+		    	<label>比赛日期：<span id="sdate"></span> </label><br />
 		    </div>
 		    <!--奖项设置-->
 		    <div class="jiage" style="background: #8A6DE9;">
-		    	<label>奖项设置：<span>一等奖兰博基尼，二等奖笔记本，三等奖铅笔</span></label>
+		    	<label>奖项设置：<span id="prize"></span></label>
 		    </div>
 		    <!--赞助商-->
 		    <div class="jiage" style="background: #FF5053;">
-					<label>赞助商：<span>阿里巴巴集团，百度集团</span></label>		    	
+					<label>赞助商：<span id="sponsor"></span></label>		    	
 		    </div>
 		    <!--详情简介-->
 		    <div class="textp">
 		    	<h4>比赛简介：</h4>
-		    	<span>训练半年，了解乒乓球的基本常识。掌握正确握、站位，正确反手推挡、正手攻球动作，正反手上旋发球，能够上台对练数十个。视疲劳，颈椎疲劳极大缓解，吃饭好，睡觉香，身体素质提高。</span>
+		    	<span id="desc2"></span>
 		    </div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/main.js" ></script>
 		<script type="text/javascript">
 			mui.init()
+			var sid ="";
+			//页面加载时获取到赛程列表页面传来的赛程id,赋给sid
+			mui.plusReady(function(){
+			    var self = plus.webview.currentWebview();
+			    sid = self.scheduleid;//获得参数
+			    //console.log(sid)
+			    getschedule();
+			});
+			//通过id查询赛程
+			function  getschedule(){
+				mui.ajax({
+					type:'post',
+					url:BaseUrl+"/PClub/selSchedule",
+					data:{id:sid},
+					dataType:"json", 
+					success:function(res){
+						//console.log(res.date);
+						mui("#sname")[0].innerHTML=res.name;
+						mui("#price")[0].innerHTML=res.price;
+						mui("#sdate")[0].innerHTML=res.date;
+						mui("#sponsor")[0].innerHTML=res.sponsor;
+						mui("#prize")[0].innerHTML=res.prize;
+						mui("#desc2")[0].innerHTML=res.desc2;
+						sname=res.name;
+					}
+				});
+
+			}
+			var sname ="";
 			function toEn(){
 				mui.openWindow({
 					url:"schedule-enterName.html",
+					extras:{sname:sname},
 					id:"schedule-enterName"
 				})
 			}

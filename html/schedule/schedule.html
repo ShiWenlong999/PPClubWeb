@@ -13,8 +13,8 @@
 	<body>
 		<div class="mui-content">
 		  <!--课程详情列表-->
-		  <ul class="mui-table-view" >
-		      <li class="mui-table-view-cell mui-media" >
+		  <ul id="slist" class="mui-table-view" >
+		     <!-- <li class="mui-table-view-cell mui-media" >
 		          <a href="javascript:;">
 		              <img class="mui-media-object mui-pull-left" src="../../image/sy-1.jpg">
 		              <div class="mui-media-body">
@@ -22,32 +22,39 @@
 		                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
 		              </div>
 		          </a>
-		      </li>
-		      <li class="mui-table-view-cell mui-media">
-		          <a href="javascript:;">
-		              <img class="mui-media-object mui-pull-left" src="../../image/sy-2.jpg">
-		              <div class="mui-media-body">
-		                  少儿杯
-		                  <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-		              </div>
-		          </a>
-		      </li>
-		      <li class="mui-table-view-cell mui-media" onclick="toto('1')">
-		          <a href="javascript:;">
-		              <img class="mui-media-object mui-pull-left" src="../../image/sy-3.jpg">
-		              <div class="mui-media-body">
-		             领航杯乒乓球大赛
-		                  <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-		              </div>
-		          </a>
-		      </li>
+		      </li>-->
+		     
 		  </ul>
 		</div>
+		<script type="text/javascript" src="../../js/main.js" ></script>
 		<script type="text/javascript">
 			mui.init()
+			getSchedule();
+			//动态获取所有赛程（状态为1）
+			function getSchedule(){
+				mui.ajax({
+					type:'post',
+					url:BaseUrl+"/PClub/selAllSchedule", 
+					data:{state:"1"},
+					dataType:"json",
+					//请求成功返回调用的方法及返回的参数
+					success:function(res){
+						//console.log(res);
+						var context = "";
+						for(var i=0;i<res.length;i++){
+							context+="<li class='mui-table-view-cell mui-media'  onclick='toto("+res[i].id+")' ><a href='javascript:'>";
+		                    context+="<img class='mui-media-object mui-pull-left' src='../../image/sy-3.jpg'>";
+		                    context+="<div class='mui-media-body'>"+res[i].name+"<p class='mui-ellipsis'>"+res[i].desc1+"</p></div></a></li>";
+						}
+						mui("#slist")[0].innerHTML=context;  //把context值放进id为slist里面
+					}
+				});
+			}
+			
 			function toto(id){
 				mui.openWindow({
     			url:"schedule-info.html",
+    			extras:{scheduleid:id},//把赛程id传到赛程详情页面
     			id:"schedule-info"
     		})
 			}
